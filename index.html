@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff7ed" />
+    <title>너에게 보내는 빼빼로</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="decor decor-left" aria-hidden="true">✦</div>
+      <div class="decor decor-right" aria-hidden="true">♥</div>
+      <section class="intro-card" aria-labelledby="page-title">
+        <p class="eyebrow">11월 11일, 마음을 전하는 날</p>
+        <h1 id="page-title">너에게 보내는<br /><span>빼빼로</span> 선물</h1>
+        <p class="intro-copy">오늘은 네가 떠올라서<br />작은 선물을 준비했어.</p>
+        <div class="name-field">
+          <label for="friend-name">짜쟌!</label>
+          <div class="input-wrap">
+            <input id="friend-name" type="text" maxlength="12" placeholder="너의 이름을 적어줘!(ex: 세은)" autocomplete="off" />
+          </div>
+        </div>
+        <button class="start-button" id="start-button" type="button">선물 열어보기 <span>→</span></button>
+      </section>
+
+      <section class="gift-stage is-hidden" id="gift-stage" aria-live="polite">
+        <p class="stage-label">FOR <strong id="recipient-name">친구</strong></p>
+        <button class="gift-box" id="gift-box" type="button" aria-label="선물 상자를 열어보세요">
+          <span class="box-lid"></span><span class="box-body"></span>
+          <span class="box-ribbon ribbon-vertical"></span><span class="box-ribbon ribbon-horizontal"></span>
+          <span class="box-bow bow-left"></span><span class="box-bow bow-right"></span><span class="box-knot"></span>
+          <span class="click-hint">톡 눌러봐!</span>
+        </button>
+        <p class="stage-caption" id="stage-caption">상자를 누르면 마음이 도착해요</p>
+        <p class="failure-count" id="failure-count">실패 횟수: 0회</p>
+      </section>
+
+      <section class="message-card is-hidden" id="message-card" aria-live="polite">
+        <div class="confetti" aria-hidden="true">✦　·　♥　·　✦</div>
+        <p class="message-kicker">A LITTLE GIFT FOR YOU</p>
+        <div class="pepero-illustration" aria-hidden="true">
+          <span class="stick stick-one"></span><span class="stick stick-two"></span><span class="stick stick-three"></span>
+          <span class="chocolate chocolate-one"></span><span class="chocolate chocolate-two"></span><span class="chocolate chocolate-three"></span>
+          <span class="sprinkle sprinkle-one"></span><span class="sprinkle sprinkle-two"></span><span class="sprinkle sprinkle-three"></span>
+        </div>
+        <h2><span id="message-name">친구</span>아, 선물이야!</h2>
+        <img class="random-gift-image" id="random-gift-image" alt="랜덤으로 도착한 특별한 선물" />
+        <p class="message-body">네가 있어서 평범한 하루도<br />조금 더 특별해지는 것 같아.<br /><strong>늘 고맙고, 많이 아껴!</strong></p>
+        <div class="heart-line">♡　♡　♡</div>
+        <button class="again-button" id="again-button" type="button">다시 열어보기</button>
+      </section>
+    </main>
+    <footer>made with a little sweetness</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
