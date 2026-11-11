@@ -27,9 +27,14 @@ document.querySelector("#start-button").addEventListener("click", showGiftStage)
 document.querySelector("#gift-box").addEventListener("click", () => {
   if (Math.random() >= 0.2) {
     failedAttempts += 1;
+    const giftBox = document.querySelector("#gift-box");
+    giftBox.classList.remove("failure-burst");
+    void giftBox.offsetWidth;
+    giftBox.classList.add("failure-burst");
     stageCaption.textContent = "앗, 열기에 실패했어요! 다시 눌러봐!";
     stageCaption.classList.add("failure");
     failureCount.textContent = `실패 횟수: ${failedAttempts}회`;
+    window.setTimeout(() => giftBox.classList.remove("failure-burst"), 700);
     return;
   }
 
