@@ -3,17 +3,14 @@ const giftStage = document.querySelector("#gift-stage");
 const messageCard = document.querySelector("#message-card");
 const nameInput = document.querySelector("#friend-name");
 const recipientName = document.querySelector("#recipient-name");
-const messageName = document.querySelector("#message-name");
 const stageCaption = document.querySelector("#stage-caption");
 const failureCount = document.querySelector("#failure-count");
 const randomGiftImage = document.querySelector("#random-gift-image");
-const giftImages = ["데이트권.png", "마이멜로디_뺴빼로.png", "몬치치.png", "시사_빼빼로.png"];
 let failedAttempts = 0;
 
 function showGiftStage() {
   const name = nameInput.value.trim() || "친구";
   recipientName.textContent = name;
-  messageName.textContent = name;
   introCard.classList.add("is-hidden");
   messageCard.classList.add("is-hidden");
   giftStage.classList.remove("is-hidden");
@@ -38,13 +35,12 @@ document.querySelector("#gift-box").addEventListener("click", () => {
     return;
   }
 
-  const selectedGift = giftImages[Math.floor(Math.random() * giftImages.length)];
+  const selectedGift = "데이트권.png";
   randomGiftImage.src = encodeURI(selectedGift);
-  randomGiftImage.alt = `${selectedGift.replace(".png", "")} 선물`;
+  randomGiftImage.alt = "데이트 1회권 선물";
   giftStage.classList.add("is-hidden");
   messageCard.classList.remove("is-hidden");
 });
-document.querySelector("#again-button").addEventListener("click", showGiftStage);
 nameInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") showGiftStage();
 });
