@@ -8,6 +8,12 @@ const failureCount = document.querySelector("#failure-count");
 const randomGiftImage = document.querySelector("#random-gift-image");
 let failedAttempts = 0;
 
+function trackEvent(eventName, parameters) {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, parameters);
+  }
+}
+
 function showGiftStage() {
   const name = nameInput.value.trim() || "친구";
   recipientName.textContent = name;
@@ -18,6 +24,7 @@ function showGiftStage() {
   stageCaption.classList.remove("failure");
   failedAttempts = 0;
   failureCount.textContent = "실패 횟수: 0회";
+  trackEvent("start_gift", { recipient_name: name });
 }
 
 document.querySelector("#start-button").addEventListener("click", showGiftStage);
@@ -31,6 +38,7 @@ document.querySelector("#gift-box").addEventListener("click", () => {
     stageCaption.textContent = "앗, 열기에 실패했어요! 다시 눌러봐!";
     stageCaption.classList.add("failure");
     failureCount.textContent = `실패 횟수: ${failedAttempts}회`;
+    trackEvent("gift_open_failed", { attempt_count: failedAttempts });
     window.setTimeout(() => giftBox.classList.remove("failure-burst"), 700);
     return;
   }
@@ -38,6 +46,7 @@ document.querySelector("#gift-box").addEventListener("click", () => {
   const selectedGift = "데이트권.png";
   randomGiftImage.src = encodeURI(selectedGift);
   randomGiftImage.alt = "데이트 1회권 선물";
+  trackEvent("gift_opened", { gift_name: "데이트 1회권" });
   giftStage.classList.add("is-hidden");
   messageCard.classList.remove("is-hidden");
 });
